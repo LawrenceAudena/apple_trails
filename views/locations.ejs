@@ -1,0 +1,38 @@
+<% include ./partials/header %>
+
+
+<div class="location-results">
+	<div class="container">
+		
+	
+<% hikingTrails.forEach((location) =>{  %>
+	<% var notDifficult = 1;  %>
+		<% var blank = 'difficulty unknown';  %>
+		<div class="box" style="margin-bottom: 20px">
+		<ul class="content">
+		<li><strong class="this-is-1">Name: </strong><%= location.Name %></li>
+		<li><strong>Park name:</strong><%=  location.Park_Name %></li>
+		<li><strong>Located:</strong> <%=  location.Location %></li>
+		<li><strong>About the park: </strong><%= location.Other_Details %></li>
+		<li><strong>Hiking length: </strong><%= location.Length %></li>
+		<li><strong>Trail difficulty: </strong><% if(location.Difficulty !== null){  %>
+		<%= location.Difficulty %>
+		<% }else { %>
+			<%= blank %>
+		<% }  %></li>
+		<li><strong>NYC State Link:</strong><a href="<%= location.Link %>" title=""> <%= location.Link %></a></li>
+		</ul>
+		</div>
+<% }) %>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<% include ./partials/footer%>
